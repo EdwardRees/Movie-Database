@@ -1,6 +1,8 @@
 from util import readFile
+from constants import DELIM1, DELIM2
 
 def parseMovies():
+  print("Parsing movies...")
   movies = []
   genres = []
   moviesFile = readFile('../movies/movies.txt')
@@ -22,6 +24,7 @@ def parseMovies():
   return movies
 
 def validateMovies(movies):
+  print("Validating movies...")
   invalidMovies = []
   for movie in movies:
     if movie['year'] == '':
@@ -39,6 +42,7 @@ def validateMovies(movies):
 
 
 def outputMovies(movies):
+  print("Writing movies...")
   with open('../out/movies.txt', 'w') as f:
     for movie in movies:
-      f.write(f"{movie['id']}::{movie['name']}::{movie['year']}\n")
+      f.write(f"{movie['id']}{DELIM1}{movie['name']}{DELIM1}{movie['year']}\n")

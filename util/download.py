@@ -4,6 +4,10 @@ import wget
 import zipfile
 
 def prep():
+  if path.exists("../movies"):
+    print("movies directory already exists")
+    print("Skipping setup process")
+    return
   url = "https://www.dropbox.com/s/2rn7qc51yvmb766/movies.zip?dl=1"
   movieszip = wget.download(url, 'movies.zip')
   print(movieszip)

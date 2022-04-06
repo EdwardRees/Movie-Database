@@ -1,6 +1,8 @@
 from util import readFile
+from constants import DELIM1, DELIM2
 
 def parseGenres():
+  print("Parsing genres...")
   genreList = []
   moviesFile = readFile('../movies/movies.txt')
   count = 1
@@ -23,6 +25,7 @@ def parseGenres():
 
 
 def outputGenres(genres):
+  print("Writing genres...")
   with open('../out/genres.txt', 'w') as f:
     for genre in genres:
-      f.write(f"{genre['id']}::{genre['movieId']}::{genre['genre']}\n")
+      f.write(f"{genre['id']}{DELIM1}{genre['movieId']}{DELIM1}{genre['genre']}\n")
