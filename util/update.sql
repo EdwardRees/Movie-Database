@@ -1,0 +1,32 @@
+DROP TABLE IF EXISTS movies CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS ratings;
+DROP TABLE IF EXISTS tags;
+DROP TABLE IF EXISTS genres;
+CREATE TABLE movies(
+  id SERIAL PRIMARY KEY,
+  title text NOT NULL,
+  year INTEGER NOT NULL
+);
+CREATE TABLE users(id SERIAL PRIMARY KEY);
+CREATE TABLE ratings(
+  movieId INTEGER NOT NULL,
+  userId INTEGER NOT NULL,
+  rating INTEGER NOT NULL,
+  FOREIGN KEY (movieId) REFERENCES movies(id),
+  FOREIGN KEY (userId) REFERENCES users(id)
+);
+CREATE TABLE tags(
+  movieId INTEGER NOT NULL,
+  userId INTEGER NOT NULL,
+  tag text NOT NULL,
+  tagTime timestamp,
+  FOREIGN KEY(movieId) REFERENCES movies(id),
+  FOREIGN KEY(userId) REFERENCES users(id)
+);
+CREATE TABLE genres(
+  id SERIAL PRIMARY KEY,
+  movieId INTEGER NOT NULL,
+  genreTitle text NOT NULL,
+  FOREIGN KEY(movieId) REFERENCES movies(id)
+);

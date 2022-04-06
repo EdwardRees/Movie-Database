@@ -1,0 +1,4 @@
+*.pyc
+movies.zip
+movies/
+out/
