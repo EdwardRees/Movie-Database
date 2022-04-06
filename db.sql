@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS ratings;
 DROP TABLE IF EXISTS tags;
 DROP TABLE IF EXISTS genres;
+DROP TABLE IF EXISTS has_genres;
 CREATE TABLE movies(
   id SERIAL PRIMARY KEY,
   title TEXT NOT NULL,
@@ -27,13 +28,16 @@ CREATE TABLE tags(
   FOREIGN KEY(userId) REFERENCES users(id)
 );
 CREATE TABLE genres(
-  id SERIAL PRIMARY KEY,
-  movieId INTEGER NOT NULL,
-  genreTitle TEXT NOT NULL,
-  FOREIGN KEY(movieId) REFERENCES movies(id)
+  genreTitle TEXT NOT NULL
 );
-\copy movies(id,title,year) FROM './out/movies.txt' DELIMITER ';';
-\copy genres(id,movieId,genreTitle) FROM './out/genres.txt' DELIMITER ';';
+CREATE TABLE has_genres(
+  movieId INTEGER NOT NULL,
+  genreTitle TEXT NOT NULL
+);
+
+\copy movies(id, title, year) FROM './out/movies.txt' DELIMITER ';';
+\copy genres(genreTitle) FROM './out/genres.txt' DELIMITER ';';
+\copy has_genres(movieId, genreTitle) FROM './out/has_genres.txt' DELIMITER ';';
 \copy users(id) FROM './out/users.txt' DELIMITER ',';
-\copy ratings(userId,movieId,rating,ratingTime) FROM './out/ratings.txt' DELIMITER ',';
-\copy tags(userId,movieId,tag,tagTime) FROM './out/tags.txt' DELIMITER ',';
+\copy ratings(userId, movieId, rating, ratingTime) FROM './out/ratings.txt' DELIMITER ',';
+\copy tags(userId, movieId, tag, tagTime) FROM './out/tags.txt' DELIMITER ',';

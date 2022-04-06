@@ -15,17 +15,25 @@ def parseGenres():
     genres = line[-1].split("|")
     for genre in genres:
       genreList.append({
-        'id': count,
         'movieId': movieId,
         'genre': genre
       })
-      count+=1
   return genreList
 
+def getGenreList(genres):
+  genreList = []
+  for genre in genres:
+    if genre['genre'] not in genreList:
+      genreList.append(genre['genre'])
+  return genreList
 
 
 def outputGenres(genres):
   print("Writing genres...")
   with open('./out/genres.txt', 'w') as f:
+    genreList = getGenreList(genres)
+    for genre in genreList:
+      f.write(f"{genre}\n")
+  with open('./out/has_genres.txt', 'w') as f:
     for genre in genres:
-      f.write(f"{genre['id']}{DELIM1}{genre['movieId']}{DELIM1}{genre['genre']}\n")
+      f.write(f"{genre['movieId']}{DELIM1}{genre['genre']}\n")
