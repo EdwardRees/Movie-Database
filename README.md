@@ -14,7 +14,7 @@ CS 333 Movie Database
 
 1. Check if `wget`, `python3`, `pip3`, and the `wget` module in `pip3`
 2. Enter the `util` folder and run the `files.py` script with `python3 files.py`<sup>[1]</sup>
-3. Once the `files.py` finishes running, create a database in postgres called `moviesdb` either with `createdb moviesdb` or `psql -c "CREATE DATABASE moviesdb"`.
+3. Once the `files.py` finishes running, create a database in postgres called `moviesdb` either with `createdb moviesdb` or `psql -U postgres -c "CREATE DATABASE moviesdb"`.
 4. Once the database is created, run the `db.sql` script in postgres with the command `psql moviesdb < db.sql`. <sup>[2]</sup>
 
 ### Automated Running

@@ -31,8 +31,8 @@ CREATE TABLE genres(
   genreTitle TEXT NOT NULL,
   FOREIGN KEY(movieId) REFERENCES movies(id)
 );
-\copy movies(id,title,year) FROM '../out/movies.txt' DELIMITER ';';
-\copy genres(id,movieId,genreTitle) FROM '../out/genres.txt' DELIMITER ';';
-\copy users(id) FROM '../out/users.txt' DELIMITER ',';
-\copy ratings(userId,movieId,rating,ratingTime) FROM '../out/ratings.txt' DELIMITER ',';
-\copy tags(userId,movieId,tag,tagTime) FROM '../out/tags.txt' DELIMITER ',';
+\copy movies(id,title,year) FROM './out/movies.txt' DELIMITER ';';
+\copy genres(id,movieId,genreTitle) FROM './out/genres.txt' DELIMITER ';';
+\copy users(id) FROM './out/users.txt' DELIMITER ',';
+\copy ratings(userId,movieId,rating,ratingTime) FROM './out/ratings.txt' DELIMITER ',';
+\copy tags(userId,movieId,tag,tagTime) FROM './out/tags.txt' DELIMITER ',';

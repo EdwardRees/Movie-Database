@@ -5,7 +5,7 @@ from users import Users
 def parseTags():
   print("Parsing tags...")
   tags = []
-  tagsFile = readFile("../movies/tags.txt")
+  tagsFile = readFile("./movies/tags.txt")
   for line in tagsFile.split("\n"):
     if line == '':
       continue
@@ -34,6 +34,6 @@ def validateTags(tags):
 
 def outputTags(tags):
   print("Writing tags...")
-  with open("../out/tags.txt", "w") as f:
+  with open("./out/tags.txt", "w") as f:
     for line in tags:
       f.write(f"{line['userId']}{DELIM2}{line['movieId']}{DELIM2}{line['tag']}{DELIM2}{line['timestamp']}\n")

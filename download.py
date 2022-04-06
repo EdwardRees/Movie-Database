@@ -4,7 +4,7 @@ import wget
 import zipfile
 
 def prep():
-  if path.exists("../movies"):
+  if path.exists("./movies"):
     print("movies directory already exists")
     print("Skipping setup process")
     return
@@ -12,14 +12,14 @@ def prep():
   movieszip = wget.download(url, 'movies.zip')
   print(movieszip)
 
-  path.isdir('../out') or mkdir('../out')
-  path.isdir("../movies") or mkdir("../movies")
+  path.isdir('./out') or mkdir('./out')
+  path.isdir("./movies") or mkdir("./movies")
 
-  move(movieszip, "../movies/movies.zip")
+  move(movieszip, "./movies/movies.zip")
 
   print("Extracting movies.zip...")
-  with zipfile.ZipFile("../movies/movies.zip", 'r') as zip_ref:
-    zip_ref.extractall("../movies")
+  with zipfile.ZipFile("./movies/movies.zip", 'r') as zip_ref:
+    zip_ref.extractall("./movies")
 
   print("Done!")
 

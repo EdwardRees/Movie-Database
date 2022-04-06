@@ -20,6 +20,6 @@ class Users:
     def outputUsers(cls):
         cls.__sortUsers()
         print("Writing users...")
-        with open("../out/users.txt", "w") as f:
+        with open("./out/users.txt", "w") as f:
             for user in cls._users:
                 f.write(f"{user}\n")

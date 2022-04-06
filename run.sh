@@ -46,7 +46,7 @@ echo "No dependencies missing, continuing..."
 echo ""
 echo "Running files program..."
 echo ""
-cd util
+
 python3 files.py
 
 echo "Finished running files program..."
@@ -55,16 +55,19 @@ echo ""
 echo "Checking for database ..."
 echo ""
 
-psql -lqt | cut -d \| -f 1 | grep -qw moviesdb
+psql -U postgres -c "SELECT 1 FROM pg_database WHERE datname = 'moviesdb'" | grep -q 1
 if [ $? -ne 0 ]; then
   echo "Database does not exist. Creating database..."
-  psql -c "CREATE DATABASE moviesdb;"
+  psql -U postgres -c "CREATE DATABASE moviesdb;"
   echo "Database created."
   echo ""
-fi 
+fi
 
 echo "Running database script..."
 echo ""
 psql moviesdb < db.sql
 
-echo "Done running database script..."
+echo "Finished running database script..."
+echo ""
+
+echo "Done..."

@@ -5,7 +5,7 @@ def parseMovies():
   print("Parsing movies...")
   movies = []
   genres = []
-  moviesFile = readFile('../movies/movies.txt')
+  moviesFile = readFile('./movies/movies.txt')
   for line in moviesFile.split('\n'):
     if line == '':
       continue
@@ -43,6 +43,6 @@ def validateMovies(movies):
 
 def outputMovies(movies):
   print("Writing movies...")
-  with open('../out/movies.txt', 'w') as f:
+  with open('./out/movies.txt', 'w') as f:
     for movie in movies:
       f.write(f"{movie['id']}{DELIM1}{movie['name']}{DELIM1}{movie['year']}\n")
