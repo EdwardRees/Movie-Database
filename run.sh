@@ -61,6 +61,9 @@ if [ $? -ne 0 ]; then
   psql -U postgres -c "CREATE DATABASE moviesdb;"
   echo "Database created."
   echo ""
+else
+  echo "Database exists."
+  echo ""
 fi
 
 echo "Running database script..."
