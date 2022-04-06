@@ -30,14 +30,14 @@ CREATE TABLE tags(
 CREATE TABLE genres(
   genreTitle TEXT NOT NULL
 );
-CREATE TABLE has_genres(
+CREATE TABLE has_genre (
   movieId INTEGER NOT NULL,
   genreTitle TEXT NOT NULL
 );
 
 \copy movies(id, title, year) FROM './out/movies.txt' DELIMITER ';';
 \copy genres(genreTitle) FROM './out/genres.txt' DELIMITER ';';
-\copy has_genres(movieId, genreTitle) FROM './out/has_genres.txt' DELIMITER ';';
+\copy has_genre(movieId, genreTitle) FROM './out/has_genre.txt' DELIMITER ';';
 \copy users(id) FROM './out/users.txt' DELIMITER ',';
 \copy ratings(userId, movieId, rating, ratingTime) FROM './out/ratings.txt' DELIMITER ',';
 \copy tags(userId, movieId, tag, tagTime) FROM './out/tags.txt' DELIMITER ',';

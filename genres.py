@@ -34,6 +34,6 @@ def outputGenres(genres):
     genreList = getGenreList(genres)
     for genre in genreList:
       f.write(f"{genre}\n")
-  with open('./out/has_genres.txt', 'w') as f:
+  with open('./out/has_genre.txt', 'w') as f:
     for genre in genres:
       f.write(f"{genre['movieId']}{DELIM1}{genre['genre']}\n")
