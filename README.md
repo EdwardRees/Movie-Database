@@ -39,6 +39,7 @@ CS 333 Movie Database
 - download.py: Python code to download the movies.zip file, moving the zip file to a `movies` folder created, unzipping the file in the `movies` folder.
 - files.py: Python code containing primary file parsing executions, calls other python functions
 - genres.py: Python code to parse out the genres from the `movies.txt` file, creating the `genres.txt` and `has_genre.txt` files in the `out` folder
+- movies.py: Python code to parse out the movies from the `movies.txt` file, creating the `movies.txt` file in the `out` folder
 - ratings.py: Python code to parse out the ratings and create the `ratings.txt` file in the `out` folder
 - tags.py: Python code to parse out the tags and create the `tags.txt` file in the `out` folder
 - users.py: Python code to parse out the user ids and create the `users.txt` file in the `out` folder
